@@ -1,0 +1,29 @@
+<section [ngClass]="{ empty: !list.length }">
+  <ng-template [ngIf]="list.length">
+    <ul>
+      <li *ngFor="let item of list; index as index">
+        <input type="checkbox" (click)="check(index)" />
+        <input
+          type="text"
+          [ngClass]="{ checked: list[index].checked }"
+          [value]="list[index].task"
+        />
+
+        <button>
+          <img
+            src="assets/icons/icon-trash.svg"
+            alt="excluir tarefa"
+            (click)="delete(index)"
+          />
+        </button>
+      </li>
+    </ul>
+  </ng-template>
+</section>
+
+<app-todo-input-add-itens
+  (newItemEvent)="addItem($event)"
+></app-todo-input-add-itens>
+<app-todo-button-delete-all
+  (deleteAllItemsEvent)="deleteAllItens()"
+></app-todo-button-delete-all>
