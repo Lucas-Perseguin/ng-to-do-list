@@ -6,10 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent {
-  public list: Array<{ checked: boolean; task: string }> = [
-    { checked: false, task: 'Limpar a casa' },
-    { checked: false, task: 'Estudar' },
-  ];
+  public list: Array<{ checked: boolean; task: string }> = [];
 
   public check(index: number) {
     this.list[index].checked = !this.list[index].checked;
